@@ -1,6 +1,17 @@
 const { documentToHtmlString } = require("@contentful/rich-text-html-renderer")
 const { getGatsbyImageResolver } = require("gatsby-plugin-image/graphql-utils")
 
+const availableLocales = [{locale: 'en', lang: 'en', name: 'English'}, {locale: 'es', lang:'es', name: 'Español'}]
+exports.sourceNodes = ({actions: {createNode}, createNodeId, createContentDigest}) => {
+  return availableLocales.map(localeInfo => createNode({
+    ...localeInfo,
+    id: createNodeId(localeInfo.locale),
+    internal: {
+      type: `AvailableLocale`,
+      contentDigest: createContentDigest(localeInfo.locale)
+    }
+  }))
+}
 exports.createSchemaCustomization = async ({ actions }) => {
   actions.createFieldExtension({
     name: "blocktype",
@@ -239,6 +250,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       title: String
       description: String
+      node_locale: String!
       image: HomepageImage
       content: [HomepageBlock]
     }
@@ -506,6 +518,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       title: String
       description: String
+      node_locale: String!
       image: HomepageImage @link(from: "image___NODE")
       content: [HomepageBlock] @link(from: "content___NODE")
     }

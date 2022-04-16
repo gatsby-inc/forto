@@ -1,14 +1,15 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import * as sections from "../components/sections"
-import Fallback from "../components/fallback"
+import Layout from "../../components/layout"
+import * as sections from "../../components/sections"
+import Fallback from "../../components/fallback"
 
 export default function Homepage(props) {
+  // console.log('homepage props', props)
   const { homepage } = props.data
 
   return (
-    <Layout {...homepage}>
+    <Layout {...homepage} locale={props.params.locale}>
       {homepage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback
@@ -19,11 +20,12 @@ export default function Homepage(props) {
 }
 
 export const query = graphql`
-  {
-    homepage {
+query HomePageContent($locale: String!) {
+    homepage(node_locale: { eq: $locale }) {
       id
       title
       description
+      node_locale
       image {
         id
         url
@@ -31,7 +33,7 @@ export const query = graphql`
       blocks: content {
         id
         blocktype
-        ...HomepageHeroContent
+        ...ContentfulHomepageHeroContent
         ...HomepageFeatureListContent
         ...HomepageCtaContent
         ...HomepageLogoListContent

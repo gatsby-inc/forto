@@ -12,6 +12,7 @@ module.exports = {
     description: "A Gatsby Starter for building homepages with Contentful",
   },
   plugins: [
+    "gatsby-plugin-gatsby-cloud",
     {
       resolve: "gatsby-source-contentful",
       options: {

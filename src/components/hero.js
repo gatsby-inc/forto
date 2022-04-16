@@ -42,7 +42,7 @@ export default function Hero(props) {
 }
 
 export const query = graphql`
-  fragment HomepageHeroContent on HomepageHero {
+  fragment ContentfulHomepageHeroContent on ContentfulHomepageHero {
     id
     kicker
     h1: heading

@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { Container, Box, Heading } from "../components/ui"
 
 export default function Page(props) {
+  // console.log(props)
   const { page } = props.data
 
   return (

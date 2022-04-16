@@ -22,7 +22,8 @@ import {
 import NavItemGroup from "./nav-item-group"
 import BrandLogo from "./brand-logo"
 
-export default function Header() {
+export default function Header(props) {
+  const {locale} = props
   const data = useStaticQuery(graphql`
     query {
       layout {
@@ -75,7 +76,7 @@ export default function Header() {
       <Container className={desktopHeaderNavWrapper}>
         <Space size={2} />
         <Flex variant="spaceBetween">
-          <NavLink to="/">
+          <NavLink to={`/${locale}/`}>
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />
           </NavLink>
@@ -90,7 +91,7 @@ export default function Header() {
                         navItems={navItem.navItems}
                       />
                     ) : (
-                      <NavLink to={navItem.href}>{navItem.text}</NavLink>
+                      <NavLink to={`/${locale}${navItem.href}`}>{navItem.text}</NavLink>
                     )}
                   </li>
                 ))}
@@ -147,7 +148,7 @@ export default function Header() {
                       navItems={navItem.navItems}
                     />
                   ) : (
-                    <NavLink to={navItem.href} className={mobileNavLink}>
+                    <NavLink to={`${navItem.href}`} className={mobileNavLink}>
                       {navItem.text}
                     </NavLink>
                   )}
