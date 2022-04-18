@@ -2,9 +2,9 @@
   <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
 </a>
 
-# Dolead Gatsby Starter
+# Forto Gatsby Starter
 
-Hey Doleaders! We've set up a quick Contentful-driven Gatsby app for you to see what we're all about. Hopefully the resources in this README help answer some initial questions, but Luke and Chris are always just an email away.
+Hey Forto! We've set up a quick Contentful-driven Gatsby app for you to see what we're all about. Hopefully the resources in this README help answer some initial questions, but Luke and Chris are always just an email away.
 
 ## Helpful Links
 
