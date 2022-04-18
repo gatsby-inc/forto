@@ -5,7 +5,7 @@ import * as sections from "../../components/sections"
 import Fallback from "../../components/fallback"
 
 export default function About(props) {
-  console.log('props', props)
+  // console.log('props', props)
   const aboutPage = props.data.contentfulAboutPage
 
   return (

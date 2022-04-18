@@ -80,7 +80,7 @@ export default function Header(props) {
       <Container className={desktopHeaderNavWrapper}>
         <Space size={2} />
         <Flex variant="spaceBetween">
-          <NavLink to={`/${node_locale}/`}>
+          <NavLink to={`/${node_locale || 'en'}/`}>
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />
           </NavLink>
