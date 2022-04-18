@@ -18,7 +18,7 @@ This version of the Contentful homepage starter is written in JavaScript. If you
 ## Quick start
 
 1. Gatsby requires a minimal node version of `v14.15.0`, this starter was setup with `14.18.0`
-2. Add the `.env` files from [this drive link](https://drive.google.com/drive/folders/1eE8F-dkVglf-fcmmkFPnDJB0I6t1gHFJ?usp=sharing) to the root folder. Chris can give you access if needed.
+2. Add the `.env` files from [this drive link](https://drive.google.com/drive/folders/1JstWOidANPmjHXYv9gGkxXCTD26EphOb?usp=sharing) to the root folder. Chris can give you access if needed.
 3. `npm install && npm run develop` should start a local server at [http://localhost:8000/](http://localhost:8000/)
 
 ## What's included?
