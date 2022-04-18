@@ -23,35 +23,39 @@ import NavItemGroup from "./nav-item-group"
 import BrandLogo from "./brand-logo"
 
 export default function Header(props) {
-  const {locale} = props
+  const {node_locale} = props
   const data = useStaticQuery(graphql`
     query {
-      layout {
+      contentfulLayout {
         header {
-          id
           navItems {
-            id
-            navItemType
-            ... on NavItem {
+            ... on ContentfulNavItem {
               href
               text
+              internal {
+                type
+              }
             }
-            ... on NavItemGroup {
+            ... on ContentfulNavItemGroup {
               name
               navItems {
-                id
                 href
                 text
                 description
                 icon {
-                  alt
+                  alt:description
                   gatsbyImageData
                 }
+                internal {
+                  type
+                }
+              }
+              internal {
+                type
               }
             }
           }
           cta {
-            id
             href
             text
           }
@@ -60,7 +64,7 @@ export default function Header(props) {
     }
   `)
 
-  const { navItems, cta } = data.layout.header
+  const { navItems, cta } = data.contentfulLayout.header
   const [isOpen, setOpen] = React.useState(false)
 
   React.useEffect(() => {
@@ -76,7 +80,7 @@ export default function Header(props) {
       <Container className={desktopHeaderNavWrapper}>
         <Space size={2} />
         <Flex variant="spaceBetween">
-          <NavLink to={`/${locale}/`}>
+          <NavLink to={`/${node_locale || 'en'}/`}>
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />
           </NavLink>
@@ -91,7 +95,7 @@ export default function Header(props) {
                         navItems={navItem.navItems}
                       />
                     ) : (
-                      <NavLink to={`/${locale}${navItem.href}`}>{navItem.text}</NavLink>
+                      <NavLink to={`/${node_locale}${navItem.href}`}>{navItem.text}</NavLink>
                     )}
                   </li>
                 ))}

@@ -64,29 +64,25 @@ export default function StatList(props) {
 }
 
 export const query = graphql`
-  fragment HomepageStatListContent on HomepageStatList {
-    id
+  fragment HomepageStatListContent on ContentfulHomepageStatList {
     kicker
-    heading
     text
     image {
-      id
-      alt
+      alt:description
       gatsbyImageData
     }
+    internal {
+      type
+    }
     icon {
-      id
-      alt
+      alt:description
       gatsbyImageData
     }
     content {
-      id
       value
       label
-      heading
     }
     links {
-      id
       href
       text
     }

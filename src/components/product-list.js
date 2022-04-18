@@ -54,22 +54,21 @@ export default function ProductList(props) {
 }
 
 export const query = graphql`
-  fragment HomepageProductListContent on HomepageProductList {
-    id
+  fragment HomepageProductListContent on ContentfulHomepageProductList {
     kicker
     heading
-    text
+    internal {
+      type
+    }
     content {
-      id
       heading
       text
       image {
-        alt
+        alt:description
         id
         gatsbyImageData
       }
       links {
-        id
         href
         text
       }

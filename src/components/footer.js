@@ -71,7 +71,7 @@ const getSocialName = ({ service }) => {
 export default function Footer() {
   const data = useStaticQuery(graphql`
     query {
-      layout {
+      contentfulLayout {
         footer {
           id
           links {
@@ -95,7 +95,7 @@ export default function Footer() {
     }
   `)
 
-  const { links, meta, socialLinks, copyright } = data.layout.footer
+  const { links, meta, socialLinks, copyright } = data.contentfulLayout.footer
 
   return (
     <Box as="footer" paddingY={4}>

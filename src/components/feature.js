@@ -40,20 +40,20 @@ export default function Feature(props) {
 }
 
 export const query = graphql`
-  fragment HomepageFeatureContent on HomepageFeature {
-    id
+  fragment HomepageFeatureContent on ContentfulHomepageFeature {
     kicker
     heading
     text
     links {
-      id
       href
       text
     }
     image {
-      id
       gatsbyImageData
-      alt
+      alt:description
+    }
+    internal {
+      type
     }
   }
 `

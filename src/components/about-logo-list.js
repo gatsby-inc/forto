@@ -28,22 +28,21 @@ export default function AboutLogoList(props) {
 }
 
 export const query = graphql`
-  fragment AboutLogoListContent on AboutLogoList {
-    id
+  fragment AboutLogoListContent on ContentfulAboutLogoList {
     heading
     links {
-      id
       href
       text
     }
     logos {
-      id
       alt
       image {
-        id
         gatsbyImageData
-        alt
+        alt:description
       }
+    }
+    internal {
+      type
     }
   }
 `

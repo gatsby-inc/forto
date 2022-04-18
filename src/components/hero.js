@@ -42,21 +42,20 @@ export default function Hero(props) {
 }
 
 export const query = graphql`
-  fragment ContentfulHomepageHeroContent on ContentfulHomepageHero {
-    id
+  fragment HomepageHeroContent on ContentfulHomepageHero {
     kicker
     h1: heading
-    subhead
     text
     links {
-      id
       href
       text
     }
     image {
-      id
       gatsbyImageData
-      alt
+      alt:description
+    }
+    internal {
+      type
     }
   }
 `

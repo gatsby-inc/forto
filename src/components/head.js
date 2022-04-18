@@ -1,11 +1,12 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 
-export default function Head({ title, description, image }) {
+export default function Head({ title, description, image, node_locale }) {
+
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en-us",
+        lang: node_locale || 'en-US',
       }}
     >
       <meta charSet="utf-8" />
