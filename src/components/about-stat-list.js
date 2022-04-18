@@ -27,12 +27,13 @@ export default function AboutStatList(props) {
 }
 
 export const query = graphql`
-  fragment AboutStatListContent on AboutStatList {
-    id
+  fragment AboutStatListContent on ContentfulAboutStatList {
     content {
-      id
       value
       label
+    }
+    internal {
+      type
     }
   }
 `

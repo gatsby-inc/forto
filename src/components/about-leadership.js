@@ -58,19 +58,20 @@ export default function AboutLeadership(props) {
 }
 
 export const query = graphql`
-  fragment AboutLeadershipContent on AboutLeadership {
-    id
+  fragment AboutLeadershipContent on ContentfulAboutLeadership {
     kicker
     heading
     subhead
     content {
-      id
       name
       jobTitle
       image {
         gatsbyImageData
-        alt
+        alt:description
       }
+    }
+    internal {
+      type
     }
   }
 `

@@ -18,7 +18,7 @@ export default function NotFound() {
               <Text variant="lead" className={styles.text}>
                 Sorry! We couldn’t find the page you were looking for.
               </Text>
-              <Link to="/" className={styles.link}>
+              <Link to="/en" className={styles.link}>
                 <span>Back to home</span>
                 <ChevronRight className={styles.linkChevron} />
               </Link>

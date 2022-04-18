@@ -5,13 +5,14 @@ import * as sections from "../../components/sections"
 import Fallback from "../../components/fallback"
 
 export default function About(props) {
-  const { aboutPage } = props.data
+  console.log('props', props)
+  const aboutPage = props.data.contentfulAboutPage
 
   return (
     <Layout {...aboutPage}>
       {aboutPage.blocks.map((block) => {
-        const { id, blocktype, ...componentProps } = block
-        const Component = sections[blocktype] || Fallback
+        const { id, ...componentProps } = block
+        const Component = sections[block.internal.type.replace("Contentful", "")] || Fallback
         return <Component key={id} {...componentProps} />
       })}
     </Layout>
@@ -19,18 +20,15 @@ export default function About(props) {
 }
 
 export const query = graphql`
-  {
-    aboutPage {
-      id
+  query AboutPageContent($locale: String!){
+    contentfulAboutPage(node_locale: { eq: $locale }, contentful_id: { eq: "2UARLNVAKRNspufH1G0NoS" }) {
       title
       description
+      node_locale
       image {
-        id
         url
       }
       blocks: content {
-        id
-        blocktype
         ...AboutHeroContent
         ...AboutStatListContent
         ...HomepageProductListContent

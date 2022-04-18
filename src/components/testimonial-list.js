@@ -56,18 +56,18 @@ export default function TestimonialList(props) {
 }
 
 export const query = graphql`
-  fragment HomepageTestimonialListContent on HomepageTestimonialList {
-    id
+  fragment HomepageTestimonialListContent on ContentfulHomepageTestimonialList {
     kicker
     heading
+    internal {
+      type
+    }
     content {
-      id
       quote
       source
       avatar {
-        id
         gatsbyImageData
-        alt
+        alt:description
       }
     }
   }

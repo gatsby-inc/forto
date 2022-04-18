@@ -37,20 +37,20 @@ export default function HomepageCta(props) {
 }
 
 export const query = graphql`
-  fragment HomepageCtaContent on HomepageCta {
-    id
+  fragment HomepageCtaContent on ContentfulHomepageCta {
     kicker
     heading
     text
     image {
-      alt
-      id
+      alt:description
       gatsbyImageData
     }
     links {
-      id
       href
       text
+    }
+    internal {
+      type
     }
   }
 `

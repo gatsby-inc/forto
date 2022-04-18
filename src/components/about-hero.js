@@ -29,14 +29,15 @@ export default function AboutHero(props) {
 }
 
 export const query = graphql`
-  fragment AboutHeroContent on AboutHero {
-    id
+  fragment AboutHeroContent on ContentfulAboutHero {
     heading
     text
     image {
-      id
       gatsbyImageData
-      alt
+      alt:description
+    }
+    internal {
+      type
     }
   }
 `

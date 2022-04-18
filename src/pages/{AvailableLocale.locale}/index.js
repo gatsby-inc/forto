@@ -6,13 +6,14 @@ import Fallback from "../../components/fallback"
 
 export default function Homepage(props) {
   // console.log('homepage props', props)
-  const { homepage } = props.data
+  const homepage = props.data.contentfulHomepage
 
   return (
-    <Layout {...homepage} locale={props.params.locale}>
+    <Layout {...homepage}>
       {homepage.blocks.map((block) => {
-        const { id, blocktype, ...componentProps } = block
-        const Component = sections[blocktype] || Fallback
+        console.log('block', block)
+        const { id, ...componentProps } = block
+        const Component = sections[block.internal.type.replace("Contentful", "")] || Fallback
         return <Component key={id} {...componentProps} />
       })}
     </Layout>
@@ -21,19 +22,15 @@ export default function Homepage(props) {
 
 export const query = graphql`
 query HomePageContent($locale: String!) {
-    homepage(node_locale: { eq: $locale }) {
-      id
+    contentfulHomepage(node_locale: { eq: $locale }, contentful_id: { eq: "1zzRbzEpxqUFmclOIbcipZ" }) {
       title
       description
       node_locale
       image {
-        id
         url
       }
       blocks: content {
-        id
-        blocktype
-        ...ContentfulHomepageHeroContent
+        ...HomepageHeroContent
         ...HomepageFeatureListContent
         ...HomepageCtaContent
         ...HomepageLogoListContent

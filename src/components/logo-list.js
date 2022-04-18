@@ -36,16 +36,16 @@ export default function LogoList(props) {
 }
 
 export const query = graphql`
-  fragment HomepageLogoListContent on HomepageLogoList {
-    id
+  fragment HomepageLogoListContent on ContentfulHomepageLogoList {
     text
+    internal {
+      type
+    }
     logos {
-      id
       alt
       image {
-        id
         gatsbyImageData
-        alt
+        alt:description
       }
     }
   }

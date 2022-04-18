@@ -23,18 +23,18 @@ export default function Page(props) {
   )
 }
 
-export const query = graphql`
-  query PageContent($id: String!) {
-    page(id: { eq: $id }) {
-      id
-      title
-      slug
-      description
-      image {
-        id
-        url
-      }
-      html
-    }
-  }
-`
+// export const query = graphql`
+//   query PageContent($id: String!) {
+//     contentfulPage(id: { eq: $id }) {
+//       id
+//       title
+//       slug
+//       description
+//       image {
+//         id
+//         url
+//       }
+//       html
+//     }
+//   }
+// `

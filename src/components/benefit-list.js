@@ -48,19 +48,20 @@ export default function BenefitList(props) {
 }
 
 export const query = graphql`
-  fragment HomepageBenefitListContent on HomepageBenefitList {
-    id
+  fragment HomepageBenefitListContent on ContentfulHomepageBenefitList {
     heading
     text
     content {
-      id
       heading
       text
       image {
         id
         gatsbyImageData
-        alt
+        alt:description
       }
+    }
+    internal {
+      type
     }
   }
 `
